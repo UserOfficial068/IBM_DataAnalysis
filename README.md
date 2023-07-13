@@ -3,9 +3,23 @@
 The following code implements a Data Acquisition, Pre-processing, and Data Analysis Pipeline using Python. It utilizes an API provided by AlphaVantage to acquire stock data for IBM. The pipeline includes steps for data pre-processing, loading the pre-processed data into an SQLite database, and performing data analysis tasks based on the acquired data. The code demonstrates examples of data analysis tasks and visualizations using the stored data.
 
 ## Code:
+> Necessary Libraries Imported
+> ```python
+> import requests
+> import pandas as pd
+> import matplotlib.pyplot as plt
+> import seaborn as sns
+> from sqlalchemy import create_engine
+> ```
+
 **Step 1: Data Acquisition**
 
 The code begins by acquiring stock data for IBM from the AlphaVantage API using a provided URL. The received data is then pre-processed, converting it into a pandas DataFrame for easier manipulation. This includes renaming columns, converting data types, and formatting timestamps.
+```python
+url = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&outputsize=full&apikey=AFIY6TARCA5RULA7'
+response = requests.get(url)
+data = response.json()
+```
 
 **Step 2: Data Pre-processing**
 
