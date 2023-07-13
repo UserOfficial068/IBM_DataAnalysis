@@ -52,7 +52,6 @@ df.to_sql(table_name, engine, if_exists='replace')
 
 For data analysis, the code includes several examples. The average closing price is calculated by executing an SQL query and provides insight into the overall price trend. Similarly, the maximum trading volume in a single 5-minute interval is determined using another SQL query.
 ```python
-# Perform data analysis based on the questions of interest
 # Calculate the average closing price over the entire dataset
 average_closing_price_query = f"SELECT AVG(Close) FROM {table_name}"
 average_closing_price = engine.execute(average_closing_price_query).scalar()
@@ -68,7 +67,6 @@ print("Maximum Volume: ", max_volume)
 
 The code also includes visualizations to aid in understanding the data. The closing prices over time are plotted as a line graph, offering a visual representation of the stock's performance. The volume traded over time is displayed in another line graph, indicating periods of high and low trading activity. Additionally, a histogram is created to illustrate the distribution of closing prices, allowing for an understanding of their frequency and spread.
 ```python
-# Additional data analysis tasks
 # Visualize the closing prices over time
 closing_prices_query = f"SELECT [index], Close FROM {table_name}"
 closing_prices = pd.read_sql(closing_prices_query, engine, parse_dates=['index'])
