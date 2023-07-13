@@ -77,8 +77,10 @@ plt.xlabel('Date')
 plt.ylabel('Closing Price')
 plt.grid(True)
 plt.show()
-[logo]: https://github.com/UserOfficial068/IBM_DataAnalysis/blob/15086bbd44426337a883c8ebbf7500d97f28abc5/download1.png "Logo Title Text 2"
+```
+![Closing Prices Over Time]https://github.com/UserOfficial068/IBM_DataAnalysis/blob/15086bbd44426337a883c8ebbf7500d97f28abc5/download1.png
 
+```python
 # Visualize the volume traded over time
 volume_query = f"SELECT [index], Volume FROM {table_name}"
 volume = pd.read_sql(volume_query, engine, parse_dates=['index'])
