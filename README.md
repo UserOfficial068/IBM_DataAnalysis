@@ -77,6 +77,8 @@ plt.xlabel('Date')
 plt.ylabel('Closing Price')
 plt.grid(True)
 plt.show()
+Inline-style: 
+![alt text](https://drive.google.com/file/d/19OxuOg11eqqaOEbksMTayx7qLtygr5k-/view?usp=drive_link "Logo Title Text 1")
 
 # Visualize the volume traded over time
 volume_query = f"SELECT [index], Volume FROM {table_name}"
