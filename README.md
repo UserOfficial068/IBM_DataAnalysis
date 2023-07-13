@@ -19,12 +19,7 @@ The code begins by acquiring stock data for IBM from the AlphaVantage API using 
 url = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&outputsize=full&apikey=AFIY6TARCA5RULA7'
 response = requests.get(url)
 data = response.json()
-```
 
-**Step 2: Data Pre-processing**
-
-The pre-processed data is loaded into an SQLite database for storage and further analysis. A connection to the SQLite database is established using SQLAlchemy, and the DataFrame is stored in the specified database table using the `to_sql` method.
-```python
 # Convert the nested JSON data to a pandas DataFrame
 df = pd.DataFrame(data['Time Series (5min)']).T
 
@@ -38,9 +33,9 @@ df = df.astype({'Open': float, 'High': float, 'Low': float, 'Close': float, 'Vol
 df.index = pd.to_datetime(df.index)
 ```
 
-**Step 3: Loading into a database (SQLite)**
+**Step 2: Data Pre-processing**
 
-For data analysis, the code includes several examples. The average closing price is calculated by executing an SQL query and provides insight into the overall price trend. Similarly, the maximum trading volume in a single 5-minute interval is determined using another SQL query.
+The pre-processed data is loaded into an SQLite database for storage and further analysis. A connection to the SQLite database is established using SQLAlchemy, and the DataFrame is stored in the specified database table using the `to_sql` method.
 ```python
 # Establish a connection to the SQLite database
 engine = create_engine('sqlite:///stock_data.db')
@@ -50,9 +45,9 @@ table_name = 'stock_data'
 df.to_sql(table_name, engine, if_exists='replace')
 ```
 
-**Step 4: Data Analysis**
+**Step 3: Loading into a database (SQLite)**
 
-The code also includes visualizations to aid in understanding the data. The closing prices over time are plotted as a line graph, offering a visual representation of the stock's performance. The volume traded over time is displayed in another line graph, indicating periods of high and low trading activity. Additionally, a histogram is created to illustrate the distribution of closing prices, allowing for an understanding of their frequency and spread.
+For data analysis, the code includes several examples. The average closing price is calculated by executing an SQL query and provides insight into the overall price trend. Similarly, the maximum trading volume in a single 5-minute interval is determined using another SQL query.
 ```python
 # Perform data analysis based on the questions of interest
 # Calculate the average closing price over the entire dataset
@@ -65,6 +60,10 @@ max_volume_query = f"SELECT MAX(Volume) FROM {table_name}"
 max_volume = engine.execute(max_volume_query).scalar()
 print("Maximum Volume: ", max_volume)
 ```
+
+**Step 4: Data Analysis**
+
+The code also includes visualizations to aid in understanding the data. The closing prices over time are plotted as a line graph, offering a visual representation of the stock's performance. The volume traded over time is displayed in another line graph, indicating periods of high and low trading activity. Additionally, a histogram is created to illustrate the distribution of closing prices, allowing for an understanding of their frequency and spread.
 ```python
 # Additional data analysis tasks
 # Visualize the closing prices over time
