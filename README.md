@@ -77,7 +77,7 @@ plt.xlabel('Date')
 plt.ylabel('Closing Price')
 plt.grid(True)
 plt.show()
-[logo]: https://drive.google.com/file/d/19OxuOg11eqqaOEbksMTayx7qLtygr5k-/view?usp=drive_link "Logo Title Text 2"
+[logo]: https://github.com/UserOfficial068/IBM_DataAnalysis/blob/15086bbd44426337a883c8ebbf7500d97f28abc5/download1.png "Logo Title Text 2"
 
 # Visualize the volume traded over time
 volume_query = f"SELECT [index], Volume FROM {table_name}"
