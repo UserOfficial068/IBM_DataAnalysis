@@ -78,8 +78,6 @@ plt.ylabel('Closing Price')
 plt.grid(True)
 plt.show()
 ```
-![alt text] (https://github.com/UserOfficial068/IBM_DataAnalysis/blob/15086bbd44426337a883c8ebbf7500d97f28abc5/download1.png)
-
 ```python
 # Visualize the volume traded over time
 volume_query = f"SELECT [index], Volume FROM {table_name}"
@@ -91,7 +89,8 @@ plt.xlabel('Date')
 plt.ylabel('Volume')
 plt.grid(True)
 plt.show()
-
+```
+```python
 # Visualize the distribution of closing prices
 plt.figure(figsize=(10, 6))
 sns.histplot(closing_prices['Close'], bins=30, kde=True)
