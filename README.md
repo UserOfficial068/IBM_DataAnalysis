@@ -78,7 +78,7 @@ plt.ylabel('Closing Price')
 plt.grid(True)
 plt.show()
 ```
-[logo]: https://github.com/UserOfficial068/IBM_DataAnalysis/blob/15086bbd44426337a883c8ebbf7500d97f28abc5/download1.png
+![alt text] (https://github.com/UserOfficial068/IBM_DataAnalysis/blob/15086bbd44426337a883c8ebbf7500d97f28abc5/download1.png)
 
 ```python
 # Visualize the volume traded over time
