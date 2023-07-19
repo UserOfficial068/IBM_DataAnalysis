@@ -78,6 +78,8 @@ plt.ylabel('Closing Price')
 plt.grid(True)
 plt.show()
 ```
+
+
 ```python
 # Visualize the volume traded over time
 volume_query = f"SELECT [index], Volume FROM {table_name}"
